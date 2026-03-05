@@ -1,37 +1,38 @@
 # IC Recon - Intercompany Reconciliation Platform
-## Windows Installation
+=============================================
 
-### Prerequisites
-- Node.js v18 or later (download from https://nodejs.org)
+## Prerequisites
+  Node.js v20 LTS (download from https://nodejs.org)
+  That's it - nothing else to install.
 
-### Quick Start
-1. Double-click **start.bat** to launch (shows console window)
-2. Open http://localhost:5000 in your browser
+## How to Run
+  1. Double-click "start.bat" (shows console window)
+     OR
+     Double-click "start-silent.vbs" (runs silently, opens browser)
 
-### Silent Start (No Console Window)
-- Double-click **start-silent.vbs** to run in background
-- It will automatically open your browser
+  2. Open http://localhost:5000 in your browser
 
-### Auto-Start with Windows
-1. Press Win+R, type: shell:startup
-2. Copy **start-silent.vbs** (or a shortcut to it) into that folder
+  No internet connection required. No npm install required.
+  Everything is pre-bundled and ready to go.
 
-### First Run
-On first launch, the app will install the database driver automatically.
-This requires an internet connection just once. After that, it works fully offline.
+## Auto-Start with Windows
+  1. Press Win+R, type: shell:startup, press Enter
+  2. Copy "start-silent.vbs" (or a shortcut) into that folder
 
-### Corporate Network / Proxy Issues
-If the first-time setup fails behind a corporate proxy, open Command Prompt and run:
-    npm config set proxy http://your-proxy-server:port
-    npm config set https-proxy http://your-proxy-server:port
-    npm config set strict-ssl false
-Then double-click start.bat again.
+## Stopping the App
+  - start.bat: Press Ctrl+C in the console
+  - start-silent.vbs: Task Manager > find "node.exe" > End Task
 
-### Stopping the App
-- If started with start.bat: press Ctrl+C in the console window
-- If started with start-silent.vbs: open Task Manager, find "node.exe", and End Task
+## Data & Backup
+  All data is in the "data" folder (created on first run).
+  - Backup: Copy the "data" folder
+  - Reset: Delete the "data" folder and restart
 
-### Data
-All data is stored in the "data" folder (SQLite database).
-To back up, simply copy the "data" folder.
-To reset, delete the "data" folder and restart.
+## Port Conflict
+  If port 5000 is in use, edit start.bat and change PORT=5000
+  to another port (e.g., PORT=8080).
+
+## Node.js Version
+  This package includes prebuilt binaries for Node.js v20 (LTS).
+  If you use a different Node.js version, you may need to rebuild
+  the database driver by running: npm install better-sqlite3

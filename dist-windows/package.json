@@ -1,11 +1,5 @@
 {
   "name": "ic-recon",
   "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node server.cjs"
-  },
-  "dependencies": {
-    "better-sqlite3": "^12.6.2"
-  }
+  "private": true
 }

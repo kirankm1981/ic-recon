@@ -11,32 +11,10 @@ cd /d "%~dp0"
 where node >nul 2>nul
 if %errorlevel% neq 0 (
     echo  [ERROR] Node.js is not installed.
-    echo  Please install Node.js from https://nodejs.org
+    echo  Please install Node.js v20 LTS from https://nodejs.org
     echo.
     pause
     exit /b 1
-)
-
-if not exist "node_modules\better-sqlite3" (
-    echo  First-time setup: Installing database driver...
-    echo  This only needs to happen once.
-    echo.
-    call npm install --production --no-optional 2>nul
-    if %errorlevel% neq 0 (
-        echo.
-        echo  [ERROR] Failed to install dependencies.
-        echo  If you are behind a corporate proxy, run these commands first:
-        echo    npm config set proxy http://your-proxy:port
-        echo    npm config set https-proxy http://your-proxy:port
-        echo    npm config set strict-ssl false
-        echo  Then run this file again.
-        echo.
-        pause
-        exit /b 1
-    )
-    echo.
-    echo  Setup complete!
-    echo.
 )
 
 echo  Starting IC Recon server...
